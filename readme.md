@@ -1,6 +1,6 @@
 # Tesla Inspired By her
 
-The architecture are completely inspired by (https://github.com/vuejs/vue-hackernews)
+The architecture are completely inspired by https://github.com/vuejs/vue-hackernews
 
 ## Stack 
 
@@ -28,6 +28,8 @@ npm i
 
 npm run dev
 ```
+
+Go to [http://localhost:8080](http://localhost:8080)
 
 
 ## Team

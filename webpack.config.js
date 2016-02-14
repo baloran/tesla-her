@@ -24,6 +24,19 @@ module.exports = {
       }
     ]
   },
+  plugins: [
+   new webpack.ProvidePlugin({
+     $: 'jquery',
+     $: 'jquery',
+    jQuery: 'jquery',
+    'window.jQuery': 'jquery',
+   })
+  ],
+  resolve: {
+    alias: {
+      'jquery': __dirname + '/src/vendor/jquery.js'
+    }
+  },
   babel: {
     presets: ['es2015'],
     plugins: ['transform-runtime']

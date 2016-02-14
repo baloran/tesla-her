@@ -1,5 +1,7 @@
 # Tesla Inspired By her
 
+The architecture are completely inspired by (https://github.com/vuejs/vue-hackernews)
+
 ## Stack 
 
 - Vue.js

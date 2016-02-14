@@ -1,9 +1,13 @@
 # Tesla Inspired By her
 
+## Stack 
+
+- Vue.js
+- Babel
+
 ## Requirements
 
 - [ ] NodeJS
-- [ ] Gulp
 
 ## Install
 
@@ -13,7 +17,6 @@ git clone https://github.com/baloran/tesla-her.git
 
 cd tesla-her
 
-npm install -g nodemon gulp-cli
 npm i
 ```
 
@@ -21,16 +24,8 @@ npm i
 
 ```bash
 
-gulp watch
+npm run dev
 ```
-
-## How
-
-The css is compiled thanks to post-css.
-
-The source file is in public folder.
-
-The view are in ```server/client/views```.
 
 
 ## Team

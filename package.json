@@ -5,7 +5,7 @@
   "main": "server/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "dev": "webpack-dev-server --inline --hot --no-info"
   },
   "repository": {
     "type": "git",
@@ -17,31 +17,25 @@
     "url": "https://github.com/baloran/tesla-her.git/issues"
   },
   "homepage": "https://github.com/baloran/tesla-her.git#readme",
-  "dependencies": {
-    "body-parser": "^1.14.2",
-    "config": "^1.19.0",
-    "cookie-parser": "^1.4.1",
-    "express": "^4.13.4",
-    "express-handlebars": "^3.0.0",
-    "express-session": "^1.13.0",
-    "moment": "^2.11.1",
-    "postcss-middleware": "^1.0.0",
-    "serve-favicon": "^2.3.0",
-    "underscore": "^1.8.3"
-  },
   "devDependencies": {
-    "autoprefixer": "^6.3.2",
-    "browser-sync": "^2.11.1",
-    "cssnano": "^3.5.1",
-    "gulp": "^3.9.1",
-    "gulp-nodemon": "^2.0.6",
-    "gulp-plumber": "^1.1.0",
-    "gulp-postcss": "^6.1.0",
-    "gulp-useref": "^3.0.5",
-    "postcss-hexrgba": "^0.2.0",
-    "postcss-import": "^8.0.2",
-    "postcss-mixins": "^4.0.0",
-    "postcss-nested": "^1.0.0",
-    "postcss-simple-vars": "^1.2.0"
+    "babel-core": "^6.1.21",
+    "babel-loader": "^6.1.0",
+    "babel-plugin-transform-runtime": "^6.1.18",
+    "babel-preset-es2015": "^6.1.18",
+    "babel-runtime": "^5.8.0",
+    "cross-env": "^1.0.5",
+    "css-loader": "^0.21.0",
+    "stylus-loader": "^1.4.0",
+    "vue-hot-reload-api": "^1.2.0",
+    "vue-html-loader": "^1.0.0",
+    "vue-loader": "^8.0.0",
+    "vue-style-loader": "^1.0.0",
+    "webpack": "^1.12.2",
+    "webpack-dev-server": "^1.12.0"
+  },
+  "dependencies": {
+    "es6-promise": "^3.0.2",
+    "vue": "^1.0.8",
+    "vue-router": "^0.7.5"
   }
 }

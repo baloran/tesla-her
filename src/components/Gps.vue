@@ -1,5 +1,5 @@
 <template>
-  <div class="module" v-touch:press="onPress">
+  <div class="module" v-touch:releaseme="onRelease" v-touch:press="onPress">
     <h2>Gps Components</h2>
   </div>
 </template>
@@ -14,6 +14,8 @@ export default {
     onPress: function (e) {
       e.preventDefault()
 
+      console.log(e)
+
       let self = this
 
       dynamics.animate(this.$el, {
@@ -27,22 +29,21 @@ export default {
         duration: 800,
         complete: function () {
 
-          $(self.$el).css({
-            position: "absolute",
-            backgroundColor: "red"
+          $(window).mousemove(function (e){
+            console.log(e.mouseX)
+            $(self.$el).css({
+              position: "absolute",
+              backgroundColor: "red",
+              left: e.pageX,
+              top: e.pageY
+            })
           })
         }
       })
+    },
 
-      // let circle = $('<div class="circle"></div>')
-      // console.log(e)
-      // console.log("x: "+ e.pointers[0].pageX + " y: " + e.pointers[0].pageY)
-
-      // circle.css({
-      //   'left': e.pointers[0].pageX - 8,
-      //   'top': e.pointers[0].pageY - 8,
-      // })
-      // $(this.$el).append(circle)
+    onRelease: function (e) {
+      console.log("release")
     }
   }
 }

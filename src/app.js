@@ -11,7 +11,6 @@ import Settings from './components/Settings.vue'
 Vue.use(Router)
 Vue.use(VueTouch)
 
-
 /**
  * Load component
  */

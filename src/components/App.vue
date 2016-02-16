@@ -1,12 +1,18 @@
 <template>
   <header>
     <button></button>
+    <div class="logo">
+      <img src="/static/logo.png" alt="Logo">
+    </div>
   </header>
   <aside>
     
   </aside>
   <!-- main view -->
   <div class="container">
+    <div class="hero">
+      <gps-component></gps-component>
+    </div>
     <div class="column">
       <gps-component></gps-component>
     </div>
@@ -37,22 +43,49 @@ export default {
 html, body
   width 1200px
   height 1920px
+  background-color #f75053
 
 header
-  background-color red
+  background-color transparent
   height 100px
+  padding 25px
+  box-sizing border-box
+  button
+    width 42px
+    height 42px
+    border-radius 50%
+    background-color transparent
+    position absolute
+    border 5px solid #F9Cfa5
+  .logo
+    position absolute
+    left 45%
 
 aside
-  background-color blue
+  background-color white
+  border-radius 15px
   height 200px
+  margin 30px
+  box-shadow 0px 6px 8px rgba(17,23, 29, 0.31)
 
 .container
-  background-color grey
   height 1400px
   width 1200px
   display flex
   flex-wrap wrap
   align-items stretch
+
+  .hero
+    width 100%
+    margin-left 30px
+    margin-right 30px
+    height 600px
+    .module
+      background-color white
+      border-radius 20px
+      height 600px
+      box-shadow 0px 6px 8px rgba(17,23, 29, 0.31)
+
   
   h2
     margin 0
@@ -67,7 +100,8 @@ footer
   display inline-block
 
 .module
-  background-color green
+  background-color white
+  border-radius 20px
   width 100%
   display inline-block
 

@@ -34,15 +34,15 @@ export default {
         }
       })
 
-      // let circle = $('<div class="circle"></div>')
-      // console.log(e)
-      // console.log("x: "+ e.pointers[0].pageX + " y: " + e.pointers[0].pageY)
+      let circle = $('<div class="circle"></div>')
+      console.log(e)
+      console.log("x: "+ e.pointers[0].pageX + " y: " + e.pointers[0].pageY)
 
-      // circle.css({
-      //   'left': e.pointers[0].pageX - 8,
-      //   'top': e.pointers[0].pageY - 8,
-      // })
-      // $(this.$el).append(circle)
+      circle.css({
+        'left': e.pointers[0].pageX - 8,
+        'top': e.pointers[0].pageY - 8,
+      })
+      $(this.$el).append(circle)
     }
   }
 }

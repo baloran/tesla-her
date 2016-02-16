@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import hammerjs from './vendor/hammer.js'
-import Dynamic from './vendor/dynamic.js'
 import VueTouch from './directive/vue-touch.js'
 import Router from 'vue-router'
 import App from './components/App.vue'

@@ -14,15 +14,35 @@ export default {
     onPress: function (e) {
       e.preventDefault()
 
-      let circle = $('<div class="circle"></div>')
-      console.log(e)
-      console.log("x: "+ e.pointers[0].pageX + " y: " + e.pointers[0].pageY)
+      let self = this
 
-      circle.css({
-        'left': e.pointers[0].pageX - 8,
-        'top': e.pointers[0].pageY - 8,
+      dynamics.animate(this.$el, {
+        width: 50,
+        height: 50,
+        "border-radius": 50
+      },{
+        type: dynamics.spring,
+        frequency: 200,
+        friction: 270,
+        duration: 800,
+        complete: function () {
+
+          $(self.$el).css({
+            position: "absolute",
+            backgroundColor: "red"
+          })
+        }
       })
-      $(this.$el).append(circle)
+
+      // let circle = $('<div class="circle"></div>')
+      // console.log(e)
+      // console.log("x: "+ e.pointers[0].pageX + " y: " + e.pointers[0].pageY)
+
+      // circle.css({
+      //   'left': e.pointers[0].pageX - 8,
+      //   'top': e.pointers[0].pageY - 8,
+      // })
+      // $(this.$el).append(circle)
     }
   }
 }

@@ -26,15 +26,14 @@ module.exports = {
   },
   plugins: [
    new webpack.ProvidePlugin({
-     $: 'jquery',
-     $: 'jquery',
+    $: 'jquery',
     jQuery: 'jquery',
-    'window.jQuery': 'jquery',
+    'window.jQuery': 'jquery'
    })
   ],
   resolve: {
     alias: {
-      'jquery': __dirname + '/src/vendor/jquery.js'
+      'jquery': __dirname + '/src/vendor/jquery.js',
     }
   },
   babel: {

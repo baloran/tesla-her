@@ -7,9 +7,13 @@
   </aside>
   <!-- main view -->
   <div class="container">
-    <gps-component></gps-component>
-    <music-component></music-component>
-    <settings-component></settings-component>
+    <div class="column">
+      <gps-component></gps-component>
+    </div>
+    <div class="column">
+      <music-component></music-component>
+      <settings-component></settings-component>
+    </div>
   </div>
 
   <footer>
@@ -57,9 +61,15 @@ footer
   background-color yellow
   height 220px
 
+.column
+  width 50%
+  height 100%
+  display inline-block
+
 .module
   background-color green
-  min-width 50%
+  width 100%
+  display inline-block
 
 .icon
   display inline-block

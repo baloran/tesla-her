@@ -80,6 +80,7 @@ aside
     margin-left 30px
     margin-right 30px
     height 600px
+    position relative
     .module
       background-color white
       border-radius 20px
@@ -98,12 +99,19 @@ footer
   width 50%
   height 100%
   display inline-block
+  position relative
 
 .module
   background-color white
   border-radius 20px
-  width 100%
   display inline-block
+  transform-origin 50% 50%
+  position absolute
+  top 0px
+  bottom 0px
+  left 0px
+  right 0px
+  overflow hidden
 
 .icon
   display inline-block

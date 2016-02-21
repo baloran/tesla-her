@@ -14,7 +14,7 @@
       <gps-component></gps-component>
     </div>
     <div class="column">
-      <gps-component></gps-component>
+      <!-- <gps-component></gps-component> -->
     </div>
     <div class="column">
       <music-component></music-component>

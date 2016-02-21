@@ -6,24 +6,24 @@
     </div>
   </header>
   <aside>
-    <div class="menu-item">
-      <div class="logo icon-heart"></div>
+    <div class="menu-item active">
+      <div class="icon icon-music"></div>
       <p class="label">Music</p>
     </div>
-    <div class="menu-item">
-      <div class="logo"></div>
+    <div class="menu-item active">
+      <div class="icon icon-ic_navigation_black_24px"></div>
       <p class="label">Nav</p>
     </div>
-    <div class="menu-item">
-      <div class="logo"></div>
+    <div class="menu-item active">
+      <div class="icon icon-heart"></div>
       <p class="label">Health</p>
     </div>
     <div class="menu-item">
-      <div class="logo"></div>
+      <div class="icon icon-web"></div>
       <p class="label">Web</p>
     </div>
     <div class="menu-item">
-      <div class="logo"></div>
+      <div class="icon icon-ic_call_black_24px"></div>
       <p class="label">Call</p>
     </div>
   </aside>
@@ -80,9 +80,25 @@ header
     background-color transparent
     position absolute
     border 5px solid #F9Cfa5
+    outline none
+    left 40px
+    height 40px
+    &:after
+      content ''
+      position absolute
+      bottom -30px
+      display block
+      width 200%
+      height 20px
+      left: -15px
+      background-repeat no-repeat
+      background-position center center
+      background-size contain
+      background-image url('/static/shadow-vocal.png')
   .logo
     position absolute
-    left 45%
+    left 600px
+    margin-left -63px
 
 aside
   background-color white
@@ -90,6 +106,39 @@ aside
   height 200px
   margin 30px
   box-shadow 0px 6px 8px rgba(17,23, 29, 0.31)
+  .menu-item
+    float left
+    width 20%
+    text-align center
+    margin-top: 42px
+    .icon
+      font-size 50px
+      color: greyHer
+      padding-bottom: 20px
+      position relative
+      &:after
+        content : ''
+        position: absolute
+        bottom: 0px
+        display: block
+        width: 100%
+        height: 5px
+        background-repeat no-repeat
+        background-position center center
+        background-size contain
+        background-image url('/static/shadow.png')
+    p.label
+      text-transform uppercase
+      font-family geoMed
+      font-size 20px
+      letter-spacing 0.26em
+      color greyHer
+      margin-bottom: 0
+    &.active
+      .icon
+        color redHer
+      p.label
+       color redHer
 
 .container
   height 1400px

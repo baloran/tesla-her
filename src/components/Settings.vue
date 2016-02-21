@@ -1,5 +1,5 @@
 <template>
-  <div class="module" style="background-color: red;">
+  <div class="module">
     <h2>Setting Components</h2>
   </div>
 </template>

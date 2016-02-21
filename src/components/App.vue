@@ -33,11 +33,10 @@
       <gps-component></gps-component>
     </div>
     <div class="column">
-      <gps-component></gps-component>
-    </div>
-    <div class="column">
-      <music-component></music-component>
-      <settings-component></settings-component>
+      <!-- <gps-component></gps-component> -->
+    </div><div class="column">
+      <music-component class="split"></music-component>
+      <settings-component class="split"></settings-component>
     </div>
     <div class="column">
       <phone-component></phone-component>
@@ -103,7 +102,7 @@ header
 aside
   background-color white
   border-radius 15px
-  height 200px
+  height 180px
   margin 30px
   box-shadow 0px 6px 8px rgba(17,23, 29, 0.31)
   .menu-item
@@ -141,7 +140,6 @@ aside
        color redHer
 
 .container
-  height 1400px
   width 1200px
   display flex
   flex-wrap wrap
@@ -151,15 +149,13 @@ aside
     width 100%
     margin-left 30px
     margin-right 30px
-    height 600px
+    height 625px
     position relative
     .module
       background-color white
       border-radius 20px
       height 600px
       box-shadow 0px 6px 8px rgba(17,23, 29, 0.31)
-
-  
   h2
     margin 0
 
@@ -168,10 +164,30 @@ footer
   height 220px
 
 .column
-  width 50%
-  height 100%
-  display inline-block
+  width calc(50% - 45px)
+  height 650px
+  display flex
+  flex-direction column
   position relative
+  background-color green
+  margin-bottom 30px
+  &:nth-child(2)
+    margin-left 30px
+    margin-right 15px
+  &:last-child
+    margin-right 30px
+    margin-left 15px
+
+  .split
+    background-color blue
+    height calc(50% - 10px)
+    position relative
+    &:only-child
+      height 100%
+    &:nth-child(2)
+      margin-bottom 10px
+    &:last-child
+      margin-top 10px
 
 .module
   background-color white
@@ -179,11 +195,13 @@ footer
   display inline-block
   transform-origin 50% 50%
   position absolute
+  height 100%
   top 0px
   bottom 0px
   left 0px
   right 0px
   overflow hidden
+  z-index 10000
 
 .icon
   display inline-block

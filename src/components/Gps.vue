@@ -1,6 +1,6 @@
 <template>
   <div class="module">
-  <div id='inputs'></div>
+    <div id='inputs'></div>
     <div id="map"></div>
   </div>
 </template>
@@ -28,14 +28,16 @@ export default {
 
     let self = this
     let curr;
+    let last;
 
-    $('.modsule').on({
+    $('.module').on({
       mousedown: function (e) {
+
         e.preventDefault();
 
         curr = $(e.currentTarget);
 
-        dynamics.animate(self.$el, {
+        dynamics.animate(curr[0], {
           "border-radius": 50,
           left: e.offsetX - 25,
           right: e.offsetX + 25,
@@ -47,36 +49,79 @@ export default {
           type: dynamics.spring,
           frequency: 200,
           friction: 270,
-          duration: 800
+          duration: 800,
+          complete: function() {
+            curr.parent().before(curr);
+
+            curr.css({
+              left: e.pageX - 25,
+              right: e.pageX + 25,
+              top: e.pageY - 25,
+              bottom: e.pageY + 25,
+              backgroundColor: "yellow"
+            });
+          }
         });
       },
 
       mouseup: function (e) {
+
+        if (curr != null) {
+
+          let last = getElsAt(e.clientY,e.clientX);
+          console.log(last)
+          // $(curr).detach().appendTo(last);
+        }
         curr = null
       }
     });
 
-    $('.container').on({
-      mousemove: function (e) {
+    $(' .column').on({
+      mouseenter: function (e) {
+
+        if (curr != null) {
+          last = e.target
+        }
+      }
+    })
+
+    $('body').on({
+      mousemove: function (e) {
+
         if (curr != null) {
 
-          dynamics.animate(self.$el, {
-            "border-radius": 50,
-            left: e.offsetX - 25,
-            right: e.offsetX + 25,
-            top: e.offsetY - 25,
-            bottom: e.offsetY + 25,
-          },{
-            type: dynamics.spring,
-            frequency: 200,
-            friction: 270,
-            duration: 1000
+          curr.css({
+            left: e.pageX - 25,
+            right: e.pageX + 25,
+            top: e.pageY - 25,
+            bottom: e.pageY + 25,
           });
+        } else {
         }
       }
     });
+
+    function getElsAt(pageY, pageX){
+      return $("body")
+        .find("*")
+        .filter(function() {
+
+          var offset = $(this).offset();
+          var left = offset.left;
+          var right = offset.right;
+          var width = $(this).width();
+          var height = $(this).height();
+
+          if(pageX > left && pageX < left + width) {
+            if(pageY > top && pageY < top + height) {
+              console.log($(this))
+              return $(this)
+            }
+          }
+        });
+    }
   }
-}
+};
 
 </script>
 

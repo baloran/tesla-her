@@ -6,7 +6,26 @@
     </div>
   </header>
   <aside>
-    
+    <div class="menu-item">
+      <div class="logo icon-heart"></div>
+      <p class="label">Music</p>
+    </div>
+    <div class="menu-item">
+      <div class="logo"></div>
+      <p class="label">Nav</p>
+    </div>
+    <div class="menu-item">
+      <div class="logo"></div>
+      <p class="label">Health</p>
+    </div>
+    <div class="menu-item">
+      <div class="logo"></div>
+      <p class="label">Web</p>
+    </div>
+    <div class="menu-item">
+      <div class="logo"></div>
+      <p class="label">Call</p>
+    </div>
   </aside>
   <!-- main view -->
   <div class="container">
@@ -19,6 +38,9 @@
     <div class="column">
       <music-component></music-component>
       <settings-component></settings-component>
+    </div>
+    <div class="column">
+      <phone-component></phone-component>
     </div>
   </div>
 
@@ -39,6 +61,7 @@ export default {
 <style lang="stylus">
 
 @import "../reset.styl"
+@import "../font.styl"
 
 html, body
   width 1200px

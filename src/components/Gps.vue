@@ -13,7 +13,7 @@ export default {
   ready: function () {
 
     let self = this
-    var curr;
+    let curr;
 
     $('.module').on({
       mousedown: function (e) {

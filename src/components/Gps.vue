@@ -13,18 +13,18 @@ export default {
   ready: function () {
 
     let self = this
-    let curr;
+    var curr;
 
     $('.module').on({
       mousedown: function (e) {
         e.preventDefault();
 
-        console.log(e)
+        console.log("click");
 
         curr = $(e.currentTarget);
 
-
-        dynamics.animate(self.$el, {
+        console.log(curr[0]);
+        dynamics.animate(curr[0], {
           "border-radius": 50,
           left: e.offsetX - 25,
           right: e.offsetX + 25,
@@ -36,85 +36,52 @@ export default {
           type: dynamics.spring,
           frequency: 200,
           friction: 270,
-          duration: 800
+          duration: 800,
+          complete: function() {
+            curr.parent().before(curr);
+            curr.css({
+              left: e.pageX - 25,
+              right: e.pageX + 25,
+              top: e.pageY - 25,
+              bottom: e.pageY + 25,
+            });
+            curr.on({
+              mouseup: function (e) {
+                console.log('up');
+                curr.off('mouseup','mouseleave');
+                curr = null;
+                console.log(curr);
+              },
+
+              mouseleave: function (e) {
+                console.log('mouseleave');
+                curr.off('mouseup','mouseleave');
+                curr = null;
+                console.log(curr);
+              }
+            })
+          }
         });
       },
-
-      mouseup: function (e) {
-        curr = null
-      }
     });
-
-    $('.container').on({
+    $('body').on({
       mousemove: function (e) {
+        console.log('curr :' + curr);
         if (curr != null) {
-
-          console.log(e)
-          dynamics.animate(self.$el, {
-            "border-radius": 50,
-            left: e.offsetX - 25,
-            right: e.offsetX + 25,
-            top: e.offsetY - 25,
-            bottom: e.offsetY + 25,
-            height: 50,
-            width: 50
-          },{
-            type: dynamics.spring,
-            frequency: 200,
-            friction: 270,
-            duration: 800
+          console.log('moving');
+          console.log(e.pageX);
+          curr.css({
+            left: e.pageX - 25,
+            right: e.pageX + 25,
+            top: e.pageY - 25,
+            bottom: e.pageY + 25,
           });
         } else {
-          console.log("salut")
         }
       }
-    })
-  },
-
-  methods: {
-    onPress: function (e) {
-      e.preventDefault()
-
-      let self = this
-
-      let $e = e;
-
-      dynamics.animate(this.$el, {
-        "border-radius": 50,
-        left: $e.pointers[0].offsetX - 25,
-        right: $e.pointers[0].offsetX + 25,
-        top: $e.pointers[0].offsetY - 25,
-        bottom: $e.pointers[0].offsetY + 25,
-        height: 50,
-        width: 50
-      },{
-        type: dynamics.spring,
-        frequency: 200,
-        friction: 270,
-        duration: 800,
-        complete: function (e) {
-          
-          console.log(e)
-          console.log(self.$el)
-
-          $('.container').mousemove(function (e) {
-            dynamics.animate(self.$el, {
-              left: e.offsetX,
-
-            },{
-              type: dynamics.gravity,
-              duration: 100
-            })
-          })
-        }
-      })
-    },
-
-    onRelease: function (e) {
-      console.log("release")
-    }
+    });
   }
-}
+};
 
 </script>
 

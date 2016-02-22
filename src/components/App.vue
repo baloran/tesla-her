@@ -33,13 +33,12 @@
       <gps-component></gps-component>
     </div>
     <div class="column">
-      <!-- <gps-component></gps-component> -->
-    </div><div class="column">
+
+    </div>
+
+    <div class="column">
       <music-component class="split"></music-component>
       <settings-component class="split"></settings-component>
-    </div>
-    <div class="column">
-      <phone-component></phone-component>
     </div>
   </div>
 

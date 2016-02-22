@@ -58,7 +58,6 @@ export default {
               right: e.pageX + 25,
               top: e.pageY - 25,
               bottom: e.pageY + 25,
-              backgroundColor: "yellow"
             });
           }
         });
@@ -68,11 +67,34 @@ export default {
 
         if (curr != null) {
 
-          let last = getElsAt(e.clientY,e.clientX);
-          console.log(last)
-          // $(curr).detach().appendTo(last);
+          let last = getElsAt(e.pageY, e.pageX);
+          let lat = $(curr).detach().appendTo(last);
+          curr = null
+
+          lat.css({
+              left: e.offsetX - 25,
+              right: e.offsetX + 25,
+              top: e.offsetY - 25,
+              bottom: e.offsetY + 25,
+            });
+
+          dynamics.animate(lat[0], {
+            "border-radius": 50,
+            left: "0px",
+            right: "0px",
+            top: "0px",
+            bottom: "0px",
+            height: "100%",
+            width: "100%",
+            backgroundColor: "#B10000"
+          },{
+            type: dynamics.spring,
+            frequency: 200,
+            friction: 270,
+            duration: 800
+          });
+
         }
-        curr = null
       }
     });
 
@@ -102,23 +124,26 @@ export default {
     });
 
     function getElsAt(pageY, pageX){
-      return $("body")
-        .find("*")
-        .filter(function() {
+
+      let elem;
+
+      $('*').each(function(index) {
 
           var offset = $(this).offset();
           var left = offset.left;
-          var right = offset.right;
+          var top = offset.top;
           var width = $(this).width();
           var height = $(this).height();
 
           if(pageX > left && pageX < left + width) {
-            if(pageY > top && pageY < top + height) {
-              console.log($(this))
-              return $(this)
+            if(pageY > top && pageY < top + height && $(this).hasClass('column')) {
+
+              elem = $(this)
+              return false;
             }
           }
         });
+      return elem;
     }
   }
 };

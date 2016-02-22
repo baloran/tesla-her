@@ -51,6 +51,64 @@
 
 export default {
 
+  ready : function() {
+    console.log('im ready');
+    var App = function() {
+      this.$ = {};
+      this.$.button = $('header button');
+      this.init();
+    }
+
+    App.prototype.init = function() {
+      this.initEvents();
+    };
+
+    App.prototype.initEvents = function() {
+      this.$.button.on('click', $.proxy(this.speech,this));
+    };
+
+    App.prototype.speech = function() {
+      if (('webkitSpeechRecognition' in window)) {
+        var that = this;
+
+        var rec = new webkitSpeechRecognition();
+        //config recognition
+        rec.continuous = true;
+        rec.interimResults = true;
+        rec.lang = 'en-US';
+
+        var userSaid = function(str, s) {
+          return str.indexOf(s) > -1;
+        };
+
+        rec.onresult = function(e) {
+
+          for (var i = e.resultIndex; i < e.results.length; ++i) {
+
+            if (e.results[i].isFinal) {
+
+              console.log(e.results);
+              var str = e.results[i][0].transcript;
+
+              if (userSaid(str, 'app')) {
+                alert('app being said');
+              }
+
+            }
+
+          }
+
+        };
+
+        this.$.button.on('click', function() {
+          rec.start();
+        });
+
+      }
+    };
+
+    var app = new App();
+  }
 
 }
 

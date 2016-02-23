@@ -88,14 +88,25 @@ export default {
     Phone.prototype.init = function() {
       this.$ = {};
       this.$.phoneModule = $('.phone-module');
+      this.$.cont = this.$.phoneModule.find('.main-call');
       this.$.slides = this.$.phoneModule.find('.slide');
       console.log(this.$.slides);
       this.initEvents();
     };
 
     Phone.prototype.initEvents = function() {
-      this.$.phoneModule.on('scroll', function(e) {
-        e.preventDefault();
+      this.$.cont.on({
+        'mousewheel': function(e) {
+            if (e.target.id == 'el') return;
+            e.preventDefault();
+            e.stopPropagation();
+            if (e.originalEvent.wheelDelta >= 0) {
+                console.log('Scroll up');
+            }
+            else {
+                console.log('Scroll down');
+            }
+        }
       });
     };
 
@@ -167,6 +178,7 @@ export default {
   text-align: center
   float left
   height: 100%
+  overflow: scroll
   .slides-container
     width 100%
     height 300%

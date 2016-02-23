@@ -81,6 +81,7 @@ export default {
   name: "phone-component",
 
   ready : function() {
+    
     var Phone = function() {
       this.init();
     };
@@ -89,25 +90,36 @@ export default {
       this.$ = {};
       this.$.phoneModule = $('.phone-module');
       this.$.cont = this.$.phoneModule.find('.main-call');
+      this.$.slider = this.$.phoneModule.find('.slides-container');
       this.$.slides = this.$.phoneModule.find('.slide');
       console.log(this.$.slides);
       this.initEvents();
     };
 
     Phone.prototype.initEvents = function() {
+      var that = this;
       this.$.cont.on({
         'mousewheel': function(e) {
             if (e.target.id == 'el') return;
             e.preventDefault();
             e.stopPropagation();
             if (e.originalEvent.wheelDelta >= 0) {
-                console.log('Scroll up');
+              $.throttle(1000,that.scrollSlider('up'));
             }
             else {
-                console.log('Scroll down');
+              $.throttle(1000,that.scrollSlider('down'));
             }
         }
       });
+    };
+
+    Phone.prototype.scrollSlider = function(direction) {
+      if (direction == 'up') {
+        this.$.slides.css('transform','translateY(0%)');
+      }
+      else {
+        this.$.slides.css('transform','translateY(-100%)');
+      }
     };
 
     var phone = new Phone();
@@ -186,6 +198,7 @@ export default {
       width: 100%
       height 33.33%
       transform translateY(-0%)
+      transition all 1s
       &.first-slide
         .content
           position: relative;

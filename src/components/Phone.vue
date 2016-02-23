@@ -1,5 +1,5 @@
 <template>
-  <div class="module">
+  <div class="module phone-module">
     <div class="sidebar">
       <div class="icon-ic_call_black_24px"></div>
       <div class="dots-container">
@@ -81,7 +81,25 @@ export default {
   name: "phone-component",
 
   ready : function() {
-    
+    var Phone = function() {
+      this.init();
+    };
+
+    Phone.prototype.init = function() {
+      this.$ = {};
+      this.$.phoneModule = $('.phone-module');
+      this.$.slides = this.$.phoneModule.find('.slide');
+      console.log(this.$.slides);
+      this.initEvents();
+    };
+
+    Phone.prototype.initEvents = function() {
+      this.$.phoneModule.on('scroll', function(e) {
+        e.preventDefault();
+      });
+    };
+
+    var phone = new Phone();
   }
 }
 
@@ -155,7 +173,7 @@ export default {
     .slide
       width: 100%
       height 33.33%
-      transform translateY(-200%)
+      transform translateY(-0%)
       &.first-slide
         .content
           position: relative;

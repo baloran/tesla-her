@@ -2,6 +2,12 @@
   <div class="module">
     <div class="sidebar">
     	<div class="icon-music"></div>
+    	<div class="music-options">
+    		<div class="icon-ic_search_black_24px"></div>
+    		<div class="ic_library_music_black_24px"></div>
+    		<div class="ic_library_music_black_24px"></div>
+    		<div class="ic_queue_music_black_24px"></div>
+    	</div>
     	
     </div>
   </div>

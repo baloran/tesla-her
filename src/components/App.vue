@@ -30,14 +30,14 @@
   <!-- main view -->
   <div class="container">
     <div class="hero">
-      <gps-component></gps-component>
+      <music-component></music-component>
     </div>
     <div class="column">
     <phone-component class="split"></phone-component>
     </div>
 
     <div class="column">
-      <music-component class="split"></music-component>
+      <gps-component class="split"></gps-component>
       <settings-component class="split"></settings-component>
     </div>
 

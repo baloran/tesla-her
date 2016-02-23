@@ -30,7 +30,7 @@ export default {
     let curr;
     let last;
 
-    $('.module').on({
+    $('.modulerj').on({
       mousedown: function (e) {
 
         e.preventDefault();

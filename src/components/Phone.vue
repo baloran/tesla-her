@@ -81,7 +81,7 @@ export default {
   name: "phone-component",
 
   ready : function() {
-    
+
     var Phone = function() {
       this.init();
     };
@@ -197,7 +197,7 @@ export default {
     .slide
       width: 100%
       height 33.33%
-      transform translateY(-0%)
+      transform translateY(-200%)
       transition all 1s
       &.first-slide
         .content

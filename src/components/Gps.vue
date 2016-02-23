@@ -85,8 +85,7 @@ export default {
             top: "0px",
             bottom: "0px",
             height: "100%",
-            width: "100%",
-            backgroundColor: "#B10000"
+            width: "100%"
           },{
             type: dynamics.spring,
             frequency: 200,

@@ -33,13 +33,14 @@
       <gps-component></gps-component>
     </div>
     <div class="column">
-
+    <phone-component class="split"></phone-component>
     </div>
 
     <div class="column">
       <music-component class="split"></music-component>
       <settings-component class="split"></settings-component>
     </div>
+
   </div>
 
   <footer>
@@ -236,12 +237,13 @@ footer
     margin-left 15px
 
   .split
-    background-color blue
     height calc(50% - 10px)
     position relative
     &:only-child
       height 100%
+      margin-top 0px !important
     &:nth-child(2)
+      margin-top 10px
       margin-bottom 10px
     &:last-child
       margin-top 10px

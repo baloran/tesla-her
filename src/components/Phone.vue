@@ -161,10 +161,15 @@ export default {
 
   .dots-container
       position absolute
-      left: 50%
-      margin-left -5px
+      margin-left 20px
       top 50%
       transform translateY(-50%)
+      .dot
+        font-size 30px
+        color goldHer
+        padding 10px
+        &:hover
+          color grayHer
 
   .icon-fs
     display block

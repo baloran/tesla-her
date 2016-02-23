@@ -2,11 +2,14 @@
   <div class="module phone-module">
     <div class="sidebar">
       <div class="icon-ic_call_black_24px"></div>
+
       <div class="dots-container">
-        <div class="dot active"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
+        <div class="dot icon-ic_dialpad_black_24px"></div>
+        <div class="dot icon-ic_restore_black_24px"></div>
+        <div class="dot icon-ic_star_white_18px"></div>
+        <div class="dot icon-ic_contacts_black_24px"></div>
       </div>
+
       <div class="icon-fs"></div>
     </div>
     <div class="main-call">
@@ -20,17 +23,9 @@
               <p class="time">1:34</p>
             </div>
             <div class="end icon-ic_call_end_black_24px"></div>
-          </div>       
-        </div>
-        <div class="slide second-slide">
-          <div class="content">
-            <div class="icon-ic_dialpad_black_24px"></div>
-            <div class="icon-ic_restore_black_24px"></div>
-            <div class="icon-ic_star_white_18px"></div>
-            <div class="icon-ic_contacts_black_24px"></div>
           </div>
         </div>
-        <div class="slide third-slide">
+        <div class="slide second-slide">
           <div class="content">
             <div class="call-input">0669580398</div>
             <div class="buttons">
@@ -75,13 +70,13 @@
 </template>
 
 <script>
-  
+
 export default {
 
   name: "phone-component",
 
   ready : function() {
-    
+
     var Phone = function() {
       this.init();
     };
@@ -92,33 +87,31 @@ export default {
       this.$.cont = this.$.phoneModule.find('.main-call');
       this.$.slider = this.$.phoneModule.find('.slides-container');
       this.$.slides = this.$.phoneModule.find('.slide');
+      this.$.dots = this.$.phoneModule.find('.dots-container .dot')
       console.log(this.$.slides);
       this.initEvents();
     };
 
     Phone.prototype.initEvents = function() {
       var that = this;
-      this.$.cont.on({
-        'mousewheel': function(e) {
-            if (e.target.id == 'el') return;
-            e.preventDefault();
-            e.stopPropagation();
-            if (e.originalEvent.wheelDelta >= 0) {
-              $.throttle(1000,that.scrollSlider('up'));
-            }
-            else {
-              $.throttle(1000,that.scrollSlider('down'));
-            }
-        }
+
+      this.$.dots.add('.end').on('click', function(){
+          that.scrollSlider('down');
+      });
+
+      $('.icon-ic_call_black_24px').on('click', function(){
+          that.scrollSlider('up');
       });
     };
 
     Phone.prototype.scrollSlider = function(direction) {
+
       if (direction == 'up') {
-        this.$.slides.css('transform','translateY(0%)');
+        this.$.slider.css('transform', 'translateY(0%)');
       }
+
       else {
-        this.$.slides.css('transform','translateY(-100%)');
+        this.$.slider.css('transform', 'translateY(-50%)');
       }
     };
 
@@ -153,6 +146,7 @@ export default {
     font-size 25px
     position relative
     margin: 20px auto
+
     &:after
       content ''
       position absolute
@@ -164,20 +158,19 @@ export default {
       background-position center center
       background-size contain
       background-image url('/static/shadow.png')
+
   .dots-container
       position absolute
-      left: 50%
-      margin-left -5px
+      margin-left 20px
       top 50%
       transform translateY(-50%)
-    .dot
-      width 10px
-      height 10px
-      background-color grayHer
-      margin: 30px auto
-      border-radius: 50%
-      &.active
-        background-color goldHer
+      .dot
+        font-size 30px
+        color goldHer
+        padding 10px
+        &:hover
+          color grayHer
+
   .icon-fs
     display block
     position absolute
@@ -185,19 +178,23 @@ export default {
     left 20px
     font-size 55px
     color goldHer
+
 .main-call
   width: calc(100% - 90px)
-  text-align: center
+  text-align center
   float left
   height: 100%
-  overflow: scroll
+  overflow hidden
+
   .slides-container
     width 100%
-    height 300%
+    height 200%
+    transition all 1s
+    transform translateY(-50%)
+
     .slide
       width: 100%
-      height 33.33%
-      transform translateY(-0%)
+      height 50%
       transition all 1s
       &.first-slide
         .content
@@ -246,29 +243,6 @@ export default {
               margin-left: -20px
               margin-top -140px
       &.second-slide
-        .content
-          position relative
-          top 50%
-          transform translateY(-50%)
-          > div
-            display inline-block
-            color goldHer
-            font-size 50px
-            padding 20px
-            position relative
-            &:after
-              content ''
-              position absolute
-              bottom 0px
-              left 0
-              display block
-              width 100%
-              height 10px
-              background-repeat no-repeat
-              background-position center center
-              background-size contain
-              background-image url('/static/shadow.png')
-      &.third-slide
         .content
           position relative
           top 50%

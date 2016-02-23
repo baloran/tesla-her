@@ -2,12 +2,16 @@
   <div class="module">
     <div class="sidebar">
     	<div class="icon-music"></div>
+
     	<div class="music-options">
-    		<div class="icon-ic_search_black_24px"></div>
-    		<div class="ic_library_music_black_24px"></div>
-    		<div class="ic_library_music_black_24px"></div>
-    		<div class="ic_queue_music_black_24px"></div>
+    		<div class="sidebar-icons icon-ic_search_black_24px"></div>
+    		<div class="sidebar-icons icon-ic_library_music_black_24px"></div>
+    		<div class="sidebar-icons icon-ic_radio_black_36px"></div>
+    		<div class="sidebar-icons icon-ic_queue_music_black_24px"></div>
     	</div>
+
+    	<div class="icon-fs"></div>
+
     	
     </div>
   </div>
@@ -60,5 +64,20 @@ export default {
 			background-position center center
 			background-size contain
 			background-image url('/static/shadow.png')
+	.music-options
+		text-align center
+		font-size 34px
+		color greyHer
+		margin-top 70px
+		.sidebar-icons
+			cursor pointer
+			margin 30px 0
+	.icon-fs
+		position absolute
+		bottom 20px
+		left 50%
+		transform translateX(-50%)
+		font-size 50px
+		color goldHer
 
 </style>

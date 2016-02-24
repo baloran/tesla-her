@@ -182,6 +182,7 @@ export default {
 		  		$('.playlist-music.active').next().addClass('active').prepend('<div class="is-playing icon-ic_play_arrow_black_24px" _v-ab657ffc></div>');
 		  		$('.playlist-music.active.fill').children('.is-playing').remove();
 		  		$('.playlist-music.active.fill').removeClass('active fill');
+		  		this.$.currentSong.html($('.playlist-music.active').children('.song-name').text());
 		  		this.$.audio.attr('src', baseSrc + nextSrc + '.mp3');
 		  		this.$.audio[0].play();
 		  	}
@@ -191,6 +192,7 @@ export default {
 	  		$('.playlist-music').first().addClass('active').prepend('<div class="is-playing icon-ic_play_arrow_black_24px" _v-ab657ffc></div>');
 	  		$('.playlist-music.active.fill').children('.is-playing').remove();
 	  		$('.playlist-music.active.fill').removeClass('active fill');
+	  		this.$.currentSong.html($('.playlist-music.active').children('.song-name').text());
 	  		this.$.audio.attr('src', baseSrc + firstSrc + '.mp3');
 	  		this.$.audio[0].play();
 	  	}
@@ -208,6 +210,7 @@ export default {
 	  		$('.playlist-music.active').prev().addClass('active').prepend('<div class="is-playing icon-ic_play_arrow_black_24px" _v-ab657ffc></div>');
 	  		$('.playlist-music.active.fill').children('.is-playing').remove();
 	  		$('.playlist-music.active.fill').removeClass('active fill');
+	  		this.$.currentSong.html($('.playlist-music.active').children('.song-name').text());
 	  		this.$.audio.attr('src', baseSrc + nextSrc + '.mp3');
 	  		this.$.audio[0].play();
 	  	}
@@ -217,6 +220,7 @@ export default {
 	  		$('.playlist-music').last().addClass('active').prepend('<div class="is-playing icon-ic_play_arrow_black_24px" _v-ab657ffc></div>');
 	  		$('.playlist-music.active.fill').children('.is-playing').remove();
 	  		$('.playlist-music.active.fill').removeClass('active fill');
+	  		this.$.currentSong.html($('.playlist-music.active').children('.song-name').text());
 	  		this.$.audio.attr('src', baseSrc + lastSrc + '.mp3');
 	  		this.$.audio[0].play();
 	  	}

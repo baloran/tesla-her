@@ -1,3 +1,4 @@
 /server/client/css/**/*.css
 /node_modules
 .DS_Store
+/static/musics
